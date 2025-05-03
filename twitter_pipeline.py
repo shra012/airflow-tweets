@@ -257,6 +257,6 @@ notify_slack_failure = PythonOperator(
 
 # ─── SET DEPENDENCIES ───────────────────────────────────────────────────────
 transform_task >> upload_to_gcs >> create_dataset >> create_table \
->> load_data >> create_hashtag_table >> analyze_hashtags >> index_to_es \
+>> load_data >> create_hashtag_table >> analyze_hashtags \
 >> [notify_slack_success, notify_slack_failure]
 
